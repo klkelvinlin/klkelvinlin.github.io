@@ -22,8 +22,24 @@
     <meta name="twitter:image" content="https://linsapp.com/src/logo.png">
 
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script>
+        function sendEmail(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            const subject = `New Contact Form Submission from ${name}`;
+            const body = `Name: ${name}%0D%0AEmail: ${email}%0D%0A%0D%0AMessage:%0D%0A${message}`;
+
+            window.location.href = `mailto:kelvin@linsapp.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+        }
+    </script>
 </head>
 <body>
+    <div id="particles-js"></div>
     <header class="header" id="header">
         <div class="container">
             <div class="header-content">
@@ -139,12 +155,9 @@
                         <h3>Let's Work Together</h3>
                         <p>Ready to transform your business with smart software solutions? Let's discuss your project.</p>
                         <a href="mailto:kelvin@linsapp.com" class="contact-email">kelvin@linsapp.com</a>
-                        <div class="social-links">
-                            <a href="#" class="social-link" aria-label="LinkedIn">LinkedIn</a>
-                        </div>
                     </div>
 
-                    <form class="contact-form" action="https://formspree.io/f/your-id" method="POST">
+                    <form class="contact-form" onsubmit="sendEmail(event)">
                         <div class="form-group">
                             <label for="name">Name *</label>
                             <input type="text" id="name" name="name" required>
@@ -161,11 +174,6 @@
                         </div>
 
                         <button type="submit" class="btn btn-primary">Send Message</button>
-
-                        <div class="form-status">
-                            <div class="form-success">Thank you! Your message has been sent.</div>
-                            <div class="form-error">Sorry, there was an error sending your message. Please try again.</div>
-                        </div>
                     </form>
                 </div>
             </div>
@@ -185,5 +193,110 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        particlesJS('particles-js', {
+            "particles": {
+                "number": {
+                    "value": 80,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": "#aab2c5"
+                },
+                "shape": {
+                    "type": "circle",
+                    "stroke": {
+                        "width": 0,
+                        "color": "#000000"
+                    }
+                },
+                "opacity": {
+                    "value": 0.5,
+                    "random": false,
+                    "anim": {
+                        "enable": false,
+                        "speed": 1,
+                        "opacity_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "size": {
+                    "value": 3,
+                    "random": true,
+                    "anim": {
+                        "enable": false,
+                        "speed": 40,
+                        "size_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#aab2c5",
+                    "opacity": 0.4,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 6,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                    "attract": {
+                        "enable": false,
+                        "rotateX": 600,
+                        "rotateY": 1200
+                    }
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "repulse"
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push"
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": {
+                        "distance": 400,
+                        "line_linked": {
+                            "opacity": 1
+                        }
+                    },
+                    "bubble": {
+                        "distance": 400,
+                        "size": 40,
+                        "duration": 2,
+                        "opacity": 8,
+                        "speed": 3
+                    },
+                    "repulse": {
+                        "distance": 200,
+                        "duration": 0.4
+                    },
+                    "push": {
+                        "particles_nb": 4
+                    },
+                    "remove": {
+                        "particles_nb": 2
+                    }
+                }
+            },
+            "retina_detect": true
+        });
+    </script>
 </body>
 </html>
