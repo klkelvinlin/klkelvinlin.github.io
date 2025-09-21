@@ -175,8 +175,6 @@ p {
 .nav-link:hover,
 .nav-link:focus {
     color: #e8eaf0;
-    outline: 2px solid #ff4ecd;
-    outline-offset: 2px;
 }
 
 .nav-cta {
@@ -192,8 +190,6 @@ p {
 .nav-cta:focus {
     transform: translateY(-2px);
     box-shadow: 0 8px 16px rgba(255, 78, 205, 0.3);
-    outline: 2px solid #ff4ecd;
-    outline-offset: 2px;
 }
 
 /* Mobile Navigation */
@@ -566,8 +562,6 @@ section {
 .footer-nav a:hover,
 .footer-nav a:focus {
     color: #e8eaf0;
-    outline: 2px solid #ff4ecd;
-    outline-offset: 2px;
 }
 
 @media (max-width: 639px) {
